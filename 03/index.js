@@ -31,7 +31,7 @@ service.onTransition(state => (elBox.dataset.state = state.value));
 // Start the service.
 // ...
 service.start();
-window.setTimeout(service.stop, 5000);
+window.setTimeout(service.stop.bind(service), 5000);
 
 elBox.addEventListener("mousedown", event => {
   // Send a mousedown event
