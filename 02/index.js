@@ -32,7 +32,7 @@ function send(event) {
   // Determine and update the `currentState`
   // currentState = machine.transition(currentState, event);
 
-  elBox.dataset.state = thisService.send(event);
+  elBox.dataset.state = thisService.send(event).value;
 }
 
 elBox.addEventListener("click", () => {
