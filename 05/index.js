@@ -48,6 +48,15 @@ const machine = createMachine({
           }),
           target: "idle",
         },
+        "keyup.escape": {
+          target: "idle",
+          actions: assign({
+            dx: 0,
+            dy: 0,
+            px: 0,
+            py: 0,
+          }),
+        },
       },
     },
   },
@@ -77,3 +86,7 @@ elBox.addEventListener("mousedown", service.send);
 elBody.addEventListener("mousemove", service.send);
 // - mouseup on elBody
 elBody.addEventListener("mouseup", service.send);
+
+elBody.addEventListener("keyup", e => {
+  if (e.key === "Escape") service.send("keyup.escape");
+});
